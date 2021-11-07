@@ -5,12 +5,12 @@ import { getFirestore } from "firebase/firestore";
 import { ref, onUnmounted, computed } from "vue";
 
 const config = {
-  apiKey: "AIzaSyAJC0xyYgTx2vrIFZ2K9h4rmN4aT8_4CuQ",
-  authDomain: "vue-ts-firebase-915b8.firebaseapp.com",
-  projectId: "vue-ts-firebase-915b8",
-  storageBucket: "vue-ts-firebase-915b8.appspot.com",
-  messagingSenderId: "993056706700",
-  appId: "1:993056706700:web:87649c8bebb5ec8ae2aba9",
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGE_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
 };
 
 const app = initializeApp(config);
