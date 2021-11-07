@@ -1,4 +1,5 @@
 # vue-ts-firebase
+https://elegant-shirley-275c86.netlify.app/
 
 ## Project setup
 ```
