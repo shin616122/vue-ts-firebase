@@ -17,15 +17,19 @@ const app = initializeApp(config);
 export const firestore = getFirestore(app);
 export const auth = getAuth(app);
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const useAuth = () => {
-  const user = ref<any | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const user = ref<unknown | null>(null);
   const unsubscribe = auth.onAuthStateChanged((_user) => (user.value = _user));
   onUnmounted(unsubscribe);
+  // const isLogin = computed(() => user.value !== null);
   const isLogin = computed(() => user.value !== null);
 
   const signIn = async () => {
     const googleProvider = new GoogleAuthProvider();
     await signInWithRedirect(auth, googleProvider)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .then(function (result: any) {
         console.log(result);
         store.commit("onAuthStateChanged", result.user);
